@@ -53,6 +53,6 @@ public class GPSPoint {
 		String str;
 		str=time + " (" + latitude + "," + longitude + ") " + elevation + "\n";
 		return str;
-		
+		 
 	}
 }
