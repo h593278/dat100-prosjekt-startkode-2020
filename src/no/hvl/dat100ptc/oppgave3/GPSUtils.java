@@ -90,38 +90,88 @@ public class GPSUtils {
 
 		int secs;
 		double speed;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
+		
+		double meter = distance(gpspoint1, gpspoint2);
+		
+		secs = gpspoint2.getTime()-gpspoint1.getTime();
+		
+		speed = meter/secs;
+		speed = speed*3.6;
+		
+		return speed;
 	}
 
 	public static String formatTime(int secs) {
 
-		String timestr;
+		String timestr = "";
 		String TIMESEP = ":";
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		int timer = secs/3600;
 		
-		// TODO - SLUTT
+		int rest = secs%(60*60);
+		
+		int min = rest/60;
+		
+		rest = rest%60;
+		
+		int sekunder = rest;
+		
+		if (timer<10) {
+			timestr+="0";
+			timestr+=timer;
+		} else {
+			timestr+=timer;
+		}
+		
+		timestr += TIMESEP;
+		
+		if (min<10) {
+			timestr+="0";
+			timestr+=min;
+		} else {
+			timestr+=min;
+		}
+		
+		timestr += TIMESEP;
+		
+		if (sekunder<10) {
+			timestr+="0";
+			timestr+=sekunder;
+		} else {
+			timestr+=sekunder;
+		}
+		
+		String utskrift= "";
+		
+		for (int i=10; i>timestr.length(); i--) {
+			utskrift+=" ";
+		}
+		
+		utskrift+=timestr;
+		
+		return utskrift;
 
 	}
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
 
-		String str;
+		String str = "";
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		int avrunding=(int)(d*100+0.5);
+		d=(double)avrunding/100;
 		
+		String beholder=""+d;
+		
+		if (d%1>=0 && d%1<0.11) {
+			beholder+="0";
+		}
+		
+		for (int i=10; i>beholder.length(); i--) {
+			str+=" ";
+		}
+		
+		str+=beholder;
+		return str;
 	}
 }
