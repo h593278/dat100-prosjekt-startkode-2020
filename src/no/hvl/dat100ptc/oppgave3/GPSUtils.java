@@ -140,16 +140,9 @@ public class GPSUtils {
 		} else {
 			timestr+=sekunder;
 		}
-		
-		String utskrift= "";
-		
-		for (int i=10; i>timestr.length(); i--) {
-			utskrift+=" ";
-		}
-		
-		utskrift+=timestr;
-		
-		return utskrift;
+				
+		timestr=String.format("%10s", timestr);
+		return timestr;
 
 	}
 	private static int TEXTWIDTH = 10;
@@ -157,9 +150,8 @@ public class GPSUtils {
 	public static String formatDouble(double d) {
 
 		String str = "";
-
-		int avrunding=(int)(d*100+0.5);
-		d=(double)avrunding/100;
+		
+		d=Math.floor(d*100+0.5)/100;
 		
 		String beholder=""+d;
 		
@@ -167,11 +159,8 @@ public class GPSUtils {
 			beholder+="0";
 		}
 		
-		for (int i=10; i>beholder.length(); i--) {
-			str+=" ";
-		}
-		
-		str+=beholder;
+		str=String.format("%10s", beholder);
+
 		return str;
 	}
 }
