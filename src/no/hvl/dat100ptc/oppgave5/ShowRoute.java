@@ -55,21 +55,31 @@ public class ShowRoute extends EasyGraphics {
 	
 		double ystep;
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+        double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
 
-		// TODO - SLUTT
+        ystep = MAPXSIZE / (Math.abs(maxlat - minlat)); 
+
+        return ystep;
 		
 	}
 
 	public void showRouteMap(int ybase) {
 
-		// TODO - START
+		int r=5;
+		int m=MARGIN,x,y;
 		
-		throw new UnsupportedOperationException(TODO.method());
+		setColor(255,0,0);
+		double[] tabLat = GPSUtils.getLatitudes(gpspoints);
+		double[] tabLon = GPSUtils.getLongitudes(gpspoints);
 		
-		// TODO - SLUTT
+		for(int i=0; i<tabLat.length; i++) {
+			
+			x=m+(int)(tabLon[i]*xstep());
+			y=(int)(tabLat[i]*ystep());
+			
+			fillCircle(x,y,r);
+		}
 	}
 
 	public void showStatistics() {
@@ -79,11 +89,7 @@ public class ShowRoute extends EasyGraphics {
 		setColor(0,0,0);
 		setFont("Courier",12);
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT;
+		//drawString();
 	}
 
 }

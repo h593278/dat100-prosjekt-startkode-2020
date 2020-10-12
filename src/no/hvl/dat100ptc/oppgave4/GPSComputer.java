@@ -36,7 +36,6 @@ public class GPSComputer {
 		}
 		
 		return distance;
-
 	}
 
 	// beregn totale høydemeter (i meter)
@@ -58,10 +57,8 @@ public class GPSComputer {
 
 	// beregn total tiden for hele turen (i sekunder)
 	public int totalTime() {
-
-		int tid=gpspoints[0].getTime();
 		
-		tid=gpspoints[gpspoints.length-1].getTime()-tid;
+		int tid=gpspoints[gpspoints.length-1].getTime()-gpspoints[0].getTime();
 		
 		return tid;
 		
@@ -72,10 +69,10 @@ public class GPSComputer {
 
 	public double[] speeds() {
 		
-		double[] gjennomsnitt= new double[gpspoints.length-1];
+		double[] gjennomsnitt = new double[gpspoints.length-1];
 		
-		for (int i=0; i<gpspoints.length-1; i++) {
-			gjennomsnitt[i]=GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+		for (int i = 0; i<gpspoints.length-1; i++) {
+			gjennomsnitt[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
 		}
 		return gjennomsnitt;
 
@@ -131,7 +128,7 @@ public class GPSComputer {
 			met=16;
 		}
 		
-		kcal=met*weight*secs/3600;
+		kcal = met*weight*secs/3600;
 		
 		return kcal;
 		
@@ -146,7 +143,7 @@ public class GPSComputer {
 			
 			secs=gpspoints[i+1].getTime()-gpspoints[i].getTime();
 			
-			totalkcal+=kcal(weight, secs, speeds()[i]);
+			totalkcal += kcal(weight, secs, speeds()[i]);
 		}
 		return totalkcal;
 		
