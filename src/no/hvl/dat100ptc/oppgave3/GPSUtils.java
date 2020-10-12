@@ -159,7 +159,7 @@ public class GPSUtils {
 			beholder+="0";
 		}
 		
-		str=String.format("%10s", beholder);
+		str=String.format("%s", beholder);
 
 		return str;
 	}

@@ -51,7 +51,7 @@ public class ShowProfile extends EasyGraphics {
 		
 		for (int i=0; i < gpspoints.length; i++) {
 			
-			y=MAXBARHEIGHT-(int)Math.floor(gpspoints[i].getElevation()+0.5);
+			y = MAXBARHEIGHT-(int)Math.floor(gpspoints[i].getElevation()+0.5);
 			
 			drawLine(x+i*2, MAXBARHEIGHT, x+i*2, y);
 		}

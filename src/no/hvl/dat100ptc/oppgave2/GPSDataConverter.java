@@ -20,8 +20,6 @@ public class GPSDataConverter {
 		min = Integer.parseInt(timestr.substring(14,16));
 		sec = Integer.parseInt(timestr.substring(17,19));
 		secs = hr*60*60 + min*60 + sec;
-
-		// "2017-08-13T08:52:26.000Z"
 		
 		return secs; 
 	}
